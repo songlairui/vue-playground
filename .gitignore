@@ -1,0 +1,9 @@
+_Store
+node_modules/
+dist/
+npm-debug.log
+npm-debug.log*
+.idea/
+.nuxt/
+*.m4v
+yarn.lock
