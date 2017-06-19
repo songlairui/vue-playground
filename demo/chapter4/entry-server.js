@@ -1,7 +1,9 @@
 import { createApp } from './main'
-
-// const server = require('express')()
-const renderer = require('vue-server-renderer').createRenderer()
+var path = require('path')
+const server = require('express')()
+const renderer = require('vue-server-renderer').createRenderer({
+  template: require('fs').readFileSync('../../index3.template.html', 'utf-8')
+})
 
 // const Vue = require('vue')
 const { app, app1 } = createApp()
@@ -13,25 +15,25 @@ const { app, app1 } = createApp()
 
 
 
-renderer.renderToString(app1, (err, html) => {
-  if (err) throw err
-  console.log(html)
-})
-renderer.renderToString(app, (err, html) => {
-    if (err) throw err
-    console.log(html)
+// renderer.renderToString(app1, (err, html) => {
+//   if (err) throw err
+//   console.log(html)
+// })
+// renderer.renderToString(app, (err, html) => {
+//     if (err) throw err
+//     console.log(html)
+//   })
+server.get('*', (req, res) => {
+  const { app } = createApp()
+    // console.info(app)
+  renderer.renderToString(app, (err, html) => {
+    if (err) {
+      console.error(err)
+      res.status(500).end('内部服务器错误')
+      return
+    }
+    res.end(html)
   })
-  // server.get('*', (req, res) => {
-  //   const { app } = createApp()
-  //   console.info(app)
-  //   renderer.renderToString(app, (err, html) => {
-  //     if (err) {
-  //       console.error(err)
-  //       res.status(500).end('内部服务器错误')
-  //       return
-  //     }
-  //     res.end(html)
-  //   })
-  // })
+})
 
-// server.listen(8002)
+server.listen(8002)
