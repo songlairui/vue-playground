@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 
 
 module.exports = function(env) {
@@ -11,5 +12,10 @@ module.exports = function(env) {
       path: path.resolve(__dirname, 'dist'),
       filename: '[chunkhash].[name].js'
     }
+    ,plugins:[
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor'
+      })
+    ]
   }
 }
