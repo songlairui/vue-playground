@@ -49,4 +49,5 @@ beforeMount mounted 只会在客户端执行
   然后访问`/?id=lary`，渲染结果中有h1标签
   然后再次访问`/`, 渲染结果中有h1，因为上一次的访问，改变了server中的全局变量。
   这样说明了教程中 Create Fresh Vue Instance 的必要。
-6.
+
+6. chapter4
