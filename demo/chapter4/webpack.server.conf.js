@@ -1,10 +1,14 @@
 const merge = require('webpack-merge')
 const base = require('./webpack.base.conf')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = merge(base, {
-  // entry: './entry-server.js',
-  entry: '../demo1.js',
+  target: 'node',
+  entry: {
+    server: './entry-server.js'
+  },
   output: {
-    filename: 'server.js'
+    filename: '[name].js',
+    libraryTarget: 'commonjs2'
   }
 })
