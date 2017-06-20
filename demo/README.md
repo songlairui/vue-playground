@@ -51,3 +51,8 @@ beforeMount mounted 只会在客户端执行
   这样说明了教程中 Create Fresh Vue Instance 的必要。
 
 6. chapter4
+  使用webpack让带有import ，vue组件和 render函数的代码片段运行起来
+
+## Routing and Code-Splitting
+
+**之前的例子中，简略的使用`*`来配置。实际情况下，这儿要用路由**
