@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from './App.vue'
-// const Home = () => import('./Home.vue')
+import Blank from './Blank.vue'
+// import Home from './Home.vue'
+const Home = () => import('./Home.vue')
 const About = () => import('./About.vue')
 // import About from './About.vue'
 // const About = require.ensure([], function(require) {
@@ -17,10 +18,11 @@ export function createRouter() {
     routes: [{
         path: '/home',
         component: Home,
+        name:'home'
         // component:
       }, {
         path: '/',
-        component: About
+        component: Blank
       },
       {
         path: '/about',

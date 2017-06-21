@@ -4,8 +4,8 @@ var path = require('path')
 const config = {
   resolve: {
     alias: {
-      'vue': 'vue/dist/vue.js',
-      'express': 'express/index.js'
+      'vue': 'vue/dist/vue.js'
+        // 'express': 'express/index.js'
     }
   },
   target: 'node',
@@ -14,7 +14,7 @@ const config = {
     server: './entry-server.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist', 'server'),
     filename: '[name].js',
     libraryTarget: 'commonjs2'
   },
